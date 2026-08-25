@@ -44,7 +44,7 @@ export default function LoginPage() {
     setBusy(true)
     const result = mode === 'login' ? await login(email, password) : await register(email, password)
     if (mode === 'register' && result.ok) {
-      await logRegistration(email)
+      void logRegistration(email)
     }
     setBusy(false)
     if (!result.ok) {
