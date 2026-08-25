@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from 'react'
+import { useAuth } from './AuthContext'
 import { createMockBooking } from '../services/bookingService'
 import { getDefaultBookingDate } from '../utils/dateRange'
 
@@ -15,14 +16,16 @@ const defaultSearch = {
 const BookingContext = createContext(null)
 
 export function BookingProvider({ children }) {
+  const { user } = useAuth()
   const [search, setSearch] = useState(defaultSearch)
   const [selectedTrain, setSelectedTrain] = useState(null)
   const [aiPreferences, setAiPreferences] = useState({})
   const [bookings, setBookings] = useState(() => JSON.parse(localStorage.getItem('railbook-bookings') || '[]'))
   const [lastBooking, setLastBooking] = useState(null)
+  const userBookings = bookings.filter((booking) => booking.userId === user?.email)
 
   const createBooking = (passengers) => {
-    const booking = createMockBooking({ train: selectedTrain, passengers })
+    const booking = createMockBooking({ train: selectedTrain, passengers, userId: user.email })
     const nextBookings = [booking, ...bookings]
     localStorage.setItem('railbook-bookings', JSON.stringify(nextBookings))
     setBookings(nextBookings)
@@ -45,7 +48,7 @@ export function BookingProvider({ children }) {
         setSelectedTrain,
         aiPreferences,
         setAiPreferences,
-        bookings,
+        bookings: userBookings,
         lastBooking,
         createBooking,
         cancelBooking,
