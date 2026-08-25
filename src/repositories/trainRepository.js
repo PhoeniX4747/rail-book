@@ -47,13 +47,24 @@ export function getTrainById(id) {
   return trains.find((train) => train.id === id)
 }
 
-export function searchTrains({ from = '', to = '' } = {}) {
+const classCodes = {
+  Sleeper: 'Sleeper',
+  'AC 3 Tier': '3A',
+  'AC 2 Tier': '2A',
+  'First AC': '1A',
+}
+
+export function searchTrains({ from = '', to = '', travelClass = 'Any class', tatkal = false, flexible = false } = {}) {
   const source = from.trim().toLowerCase()
   const destination = to.trim().toLowerCase()
+  const requestedClass = classCodes[travelClass]
 
   return trains.filter((train) => {
     const matchesFrom = !source || `${train.from} ${train.fromCode}`.toLowerCase().includes(source)
     const matchesTo = !destination || `${train.to} ${train.toCode}`.toLowerCase().includes(destination)
-    return matchesFrom && matchesTo
+    const matchesClass = !requestedClass || train.classes.includes(requestedClass)
+    const matchesTatkal = !tatkal || train.traits.includes('tatkal')
+    const matchesFlexibleDate = !flexible || train.traits.includes('flexible')
+    return matchesFrom && matchesTo && matchesClass && matchesTatkal && matchesFlexibleDate
   })
 }
