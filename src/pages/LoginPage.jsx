@@ -5,19 +5,34 @@ import Logo from '../components/common/Logo'
 import { useAuth } from '../context/AuthContext'
 
 export default function LoginPage() {
+  const [mode, setMode] = useState('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { login } = useAuth()
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [error, setError] = useState('')
+  const [busy, setBusy] = useState(false)
+  const { login, register } = useAuth()
   const navigate = useNavigate()
 
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault()
-    login(email || 'hello@railbook.app')
-    navigate('/dashboard')
-  }
+    setError('')
+    if (mode === 'register' && password !== confirmPassword) {
+      setError('Passwords do not match.')
+      return
+    }
+    if (password.length < 4) {
+      setError('Use a password with at least 4 characters.')
+      return
+    }
 
-  const demoLogin = () => {
-    login('maya@railbook.app')
+    setBusy(true)
+    const result = mode === 'login' ? await login(email, password) : await register(email, password)
+    setBusy(false)
+    if (!result.ok) {
+      setError(result.error)
+      return
+    }
     navigate('/dashboard')
   }
 
@@ -39,15 +54,16 @@ export default function LoginPage() {
       </section>
       <section className="login-panel">
         <div className="login-form-wrap">
-          <div className="login-welcome"><span className="eyebrow">Welcome aboard</span><h2>Let’s plan your next journey.</h2><p>Sign in to save your trips and get more helpful recommendations.</p></div>
+          <div className="login-welcome"><span className="eyebrow">Welcome aboard</span><h2>{mode === 'login' ? 'Welcome back.' : 'Create your RailBook account.'}</h2><p>{mode === 'login' ? 'Sign in to save your trips and get more helpful recommendations.' : 'Register once to save your trips in this browser.'}</p></div>
+          <div className="auth-tabs" role="tablist" aria-label="Authentication options"><button className={mode === 'login' ? 'auth-tab auth-tab--active' : 'auth-tab'} onClick={() => { setMode('login'); setError('') }} role="tab" aria-selected={mode === 'login'}>Log in</button><button className={mode === 'register' ? 'auth-tab auth-tab--active' : 'auth-tab'} onClick={() => { setMode('register'); setError('') }} role="tab" aria-selected={mode === 'register'}>Register</button></div>
           <form className="login-form" onSubmit={submit}>
-            <label>Email address<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" autoComplete="email" /></label>
-            <label>Password<input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password" autoComplete="current-password" /></label>
-            <button className="button button--primary button--wide" type="submit">Continue to RailBook <ArrowRight size={18} /></button>
+            <label>Email address<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" autoComplete="email" required /></label>
+            <label>Password<input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder={mode === 'login' ? 'Enter your password' : 'Create a password'} autoComplete={mode === 'login' ? 'current-password' : 'new-password'} required /></label>
+            {mode === 'register' && <label>Confirm password<input type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} placeholder="Repeat your password" autoComplete="new-password" required /></label>}
+            {error && <p className="auth-error" role="alert">{error}</p>}
+            <button className="button button--primary button--wide" type="submit" disabled={busy}>{busy ? 'Please wait…' : mode === 'login' ? 'Log in to RailBook' : 'Create account'} <ArrowRight size={18} /></button>
           </form>
-          <div className="login-divider"><span>or explore first</span></div>
-          <button className="button button--secondary button--wide" onClick={demoLogin}>Try the demo <Sparkles size={17} /></button>
-          <p className="form-footnote">This is a product prototype. No real account or payment is required.</p>
+          <p className="form-footnote">Passwords are salted and one-way hashed in this browser. This is a local prototype—not a replacement for server-side authentication.</p>
         </div>
       </section>
     </div>

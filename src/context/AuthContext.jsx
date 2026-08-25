@@ -1,27 +1,30 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from 'react'
+import { clearSession, getSessionUser, loginAccount, registerAccount } from '../services/authService'
 
 const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    const stored = localStorage.getItem('railbook-user')
-    return stored ? JSON.parse(stored) : null
-  })
+  const [user, setUser] = useState(getSessionUser)
 
-  const login = (email) => {
-    const name = email?.split('@')[0]?.replace(/[._-]/g, ' ') || 'Rail traveler'
-    const nextUser = { name: name.replace(/\b\w/g, (letter) => letter.toUpperCase()), email: email || 'demo@railbook.app' }
-    localStorage.setItem('railbook-user', JSON.stringify(nextUser))
-    setUser(nextUser)
+  const login = async (email, password) => {
+    const result = await loginAccount(email, password)
+    if (result.ok) setUser(result.user)
+    return result
+  }
+
+  const register = async (email, password) => {
+    const result = await registerAccount(email, password)
+    if (result.ok) setUser(result.user)
+    return result
   }
 
   const logout = () => {
-    localStorage.removeItem('railbook-user')
+    clearSession()
     setUser(null)
   }
 
-  return <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={{ user, login, register, logout }}>{children}</AuthContext.Provider>
 }
 
 export function useAuth() {
