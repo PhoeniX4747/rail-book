@@ -16,7 +16,11 @@ export default function ResultsPage() {
   const matches = useMemo(() => findTrains(search), [search])
   const recommendations = useMemo(() => getMockRecommendations({ userPreferences: aiPreferences, matchingTrains: matches }), [aiPreferences, matches])
   const recommendationMap = new Map(recommendations.map((item) => [item.trainId, item]))
-  const sortedTrains = smartMode ? [...matches].sort((a, b) => (recommendationMap.get(a.id)?.rank || 9) - (recommendationMap.get(b.id)?.rank || 9)) : matches
+  const sortedTrains = smartMode
+    ? [...matches]
+        .sort((a, b) => (recommendationMap.get(a.id)?.rank || 9) - (recommendationMap.get(b.id)?.rank || 9))
+        .slice(0, 3)
+    : matches
 
   return (
     <div className="page results-page">
@@ -30,7 +34,7 @@ export default function ResultsPage() {
 
       <div className="results-layout">
         <section className="results-list">
-          <div className="results-list-heading"><div><strong>{matches.length} option{matches.length !== 1 ? 's' : ''}</strong><span>Sorted for clarity, not clutter.</span></div><span className="sort-note"><Clock3 size={15} /> Direct routes</span></div>
+          <div className="results-list-heading"><div><strong>{sortedTrains.length} option{sortedTrains.length !== 1 ? 's' : ''}</strong><span>{smartMode ? 'Your top three matches.' : 'Sorted for clarity, not clutter.'}</span></div><span className="sort-note"><Clock3 size={15} /> Direct routes</span></div>
           {sortedTrains.length ? sortedTrains.map((train) => <TrainCard key={train.id} train={train} recommendation={recommendationMap.get(train.id)} showReason={smartMode && Boolean(recommendationMap.get(train.id))} />) : <NoResults onNewSearch={() => navigate('/search')} />}
           {search.tatkal && <TatkalHelper trains={sortedTrains} />}
         </section>
