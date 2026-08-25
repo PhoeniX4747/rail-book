@@ -14,12 +14,22 @@
     "availability": "Available 58",
     "availabilityType": "available",
     "confirmationChance": 96,
-    "classes": ["Sleeper", "3A", "2A"],
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
     "days": "Daily",
     "badge": "Best overall",
     "comfort": 4,
     "insight": "A dependable overnight journey with excellent confirmation history.",
-    "route": ["Hyderabad", "Secunderabad", "Solapur", "Pune", "Mumbai"]
+    "route": [
+      "Hyderabad",
+      "Secunderabad",
+      "Solapur",
+      "Pune",
+      "Mumbai"
+    ]
   },
   {
     "id": "TR002",
@@ -36,12 +46,23 @@
     "availability": "RAC 12",
     "availabilityType": "rac",
     "confirmationChance": 88,
-    "classes": ["Sleeper", "3A", "2A", "1A"],
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A",
+      "1A"
+    ],
     "days": "Mon, Wed, Fri",
     "badge": "Best value",
     "comfort": 4,
     "insight": "A practical choice if you value a late-morning departure and strong RAC movement.",
-    "route": ["Secunderabad", "Vikarabad", "Solapur", "Pune", "Mumbai"]
+    "route": [
+      "Secunderabad",
+      "Vikarabad",
+      "Solapur",
+      "Pune",
+      "Mumbai"
+    ]
   },
   {
     "id": "TR003",
@@ -58,12 +79,23 @@
     "availability": "WL 15",
     "availabilityType": "waitlist",
     "confirmationChance": 82,
-    "classes": ["Sleeper", "3E", "3A", "2A"],
+    "classes": [
+      "Sleeper",
+      "3E",
+      "3A",
+      "2A"
+    ],
     "days": "Daily",
     "badge": "Lowest fare",
     "comfort": 3,
     "insight": "An affordable option with a good confirmation outlook for this route.",
-    "route": ["Hyderabad", "Wadi", "Solapur", "Pune", "Mumbai"]
+    "route": [
+      "Hyderabad",
+      "Wadi",
+      "Solapur",
+      "Pune",
+      "Mumbai"
+    ]
   },
   {
     "id": "TR004",
@@ -80,12 +112,22 @@
     "availability": "Available 14",
     "availabilityType": "available",
     "confirmationChance": 94,
-    "classes": ["3A", "2A", "1A"],
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
     "days": "Daily",
     "badge": "Fastest",
     "comfort": 5,
     "insight": "Our fastest direct option, with premium cabins for a restful overnight trip.",
-    "route": ["Hyderabad", "Vikarabad", "Solapur", "Pune", "Mumbai"]
+    "route": [
+      "Hyderabad",
+      "Vikarabad",
+      "Solapur",
+      "Pune",
+      "Mumbai"
+    ]
   },
   {
     "id": "TR005",
@@ -102,12 +144,21 @@
     "availability": "Available 42",
     "availabilityType": "available",
     "confirmationChance": 95,
-    "classes": ["Sleeper", "3A", "2A"],
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
     "days": "Daily",
     "badge": "Family friendly",
     "comfort": 5,
     "insight": "Great for a relaxed overnight ride, especially when travelling together.",
-    "route": ["Hyderabad", "Kurnool", "Anantapur", "Bengaluru"]
+    "route": [
+      "Hyderabad",
+      "Kurnool",
+      "Anantapur",
+      "Bengaluru"
+    ]
   },
   {
     "id": "TR006",
@@ -124,11 +175,970 @@
     "availability": "Available 26",
     "availabilityType": "available",
     "confirmationChance": 93,
-    "classes": ["Sleeper", "3A", "2A"],
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
     "days": "Daily",
     "badge": "Popular choice",
     "comfort": 4,
     "insight": "A well-timed, popular southbound service with a reassuring availability trend.",
-    "route": ["Hyderabad", "Nalgonda", "Vijayawada", "Chennai"]
+    "route": [
+      "Hyderabad",
+      "Nalgonda",
+      "Vijayawada",
+      "Chennai"
+    ]
+  },
+  {
+    "id": "TR007",
+    "number": "12650",
+    "name": "Karnataka Sampark Kranti",
+    "from": "Hazrat Nizamuddin",
+    "fromCode": "NZM",
+    "to": "Bengaluru City",
+    "toCode": "SBC",
+    "departure": "08:20",
+    "arrival": "06:10",
+    "duration": "21h 50m",
+    "fare": 920,
+    "availability": "Available 35",
+    "availabilityType": "available",
+    "confirmationChance": 95,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Daily",
+    "badge": "Business traveller",
+    "comfort": 5,
+    "insight": "A premium long-distance service with strong punctuality.",
+    "route": [
+      "Delhi",
+      "Mathura",
+      "Bhopal",
+      "Nagpur",
+      "Bengaluru"
+    ]
+  },
+  {
+    "id": "TR008",
+    "number": "12301",
+    "name": "Rajdhani Express",
+    "from": "New Delhi",
+    "fromCode": "NDLS",
+    "to": "Howrah Junction",
+    "toCode": "HWH",
+    "departure": "16:50",
+    "arrival": "10:05",
+    "duration": "17h 15m",
+    "fare": 1450,
+    "availability": "Available 12",
+    "availabilityType": "available",
+    "confirmationChance": 98,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Daily",
+    "badge": "Premium",
+    "comfort": 5,
+    "insight": "Fast and reliable service between Delhi and Kolkata.",
+    "route": [
+      "Delhi",
+      "Kanpur",
+      "Prayagraj",
+      "Dhanbad",
+      "Howrah"
+    ]
+  },
+  {
+    "id": "TR009",
+    "number": "12622",
+    "name": "Tamil Nadu Express",
+    "from": "New Delhi",
+    "fromCode": "NDLS",
+    "to": "Chennai Central",
+    "toCode": "MAS",
+    "departure": "22:30",
+    "arrival": "07:00",
+    "duration": "32h 30m",
+    "fare": 980,
+    "availability": "Available 49",
+    "availabilityType": "available",
+    "confirmationChance": 96,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Most reliable",
+    "comfort": 4,
+    "insight": "One of India's most dependable long-distance routes.",
+    "route": [
+      "Delhi",
+      "Agra",
+      "Nagpur",
+      "Vijayawada",
+      "Chennai"
+    ]
+  },
+  {
+    "id": "TR010",
+    "number": "12951",
+    "name": "Mumbai Rajdhani",
+    "from": "Mumbai Central",
+    "fromCode": "MMCT",
+    "to": "New Delhi",
+    "toCode": "NDLS",
+    "departure": "17:00",
+    "arrival": "08:35",
+    "duration": "15h 35m",
+    "fare": 1520,
+    "availability": "Available 8",
+    "availabilityType": "available",
+    "confirmationChance": 99,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Daily",
+    "badge": "Fastest",
+    "comfort": 5,
+    "insight": "The quickest rail connection between Mumbai and Delhi.",
+    "route": [
+      "Mumbai",
+      "Vadodara",
+      "Kota",
+      "Delhi"
+    ]
+  },
+  {
+    "id": "TR011",
+    "number": "12626",
+    "name": "Kerala Express",
+    "from": "New Delhi",
+    "fromCode": "NDLS",
+    "to": "Thiruvananthapuram Central",
+    "toCode": "TVC",
+    "departure": "11:25",
+    "arrival": "15:15",
+    "duration": "51h 50m",
+    "fare": 880,
+    "availability": "WL 11",
+    "availabilityType": "waitlist",
+    "confirmationChance": 79,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Longest route",
+    "comfort": 4,
+    "insight": "Popular route connecting North and South India.",
+    "route": [
+      "Delhi",
+      "Nagpur",
+      "Vijayawada",
+      "Ernakulam",
+      "Trivandrum"
+    ]
+  },
+  {
+    "id": "TR012",
+    "number": "12839",
+    "name": "Chennai Mail",
+    "from": "Mumbai CSMT",
+    "fromCode": "CSMT",
+    "to": "Chennai Central",
+    "toCode": "MAS",
+    "departure": "20:35",
+    "arrival": "20:10",
+    "duration": "23h 35m",
+    "fare": 620,
+    "availability": "Available 21",
+    "availabilityType": "available",
+    "confirmationChance": 93,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Popular choice",
+    "comfort": 4,
+    "insight": "Well-balanced fare and journey duration.",
+    "route": [
+      "Mumbai",
+      "Pune",
+      "Solapur",
+      "Renigunta",
+      "Chennai"
+    ]
+  },
+  {
+    "id": "TR013",
+    "number": "12245",
+    "name": "Duronto Express",
+    "from": "Howrah Junction",
+    "fromCode": "HWH",
+    "to": "Yeshwantpur",
+    "toCode": "YPR",
+    "departure": "11:05",
+    "arrival": "16:15",
+    "duration": "29h 10m",
+    "fare": 1120,
+    "availability": "Available 15",
+    "availabilityType": "available",
+    "confirmationChance": 97,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Tue, Thu, Sat",
+    "badge": "Premium",
+    "comfort": 5,
+    "insight": "High-speed long-distance service with fewer stops.",
+    "route": [
+      "Howrah",
+      "Kharagpur",
+      "Bhubaneswar",
+      "Vijayawada",
+      "Bengaluru"
+    ]
+  },
+  {
+    "id": "TR014",
+    "number": "16591",
+    "name": "Hampi Express",
+    "from": "Mysuru Junction",
+    "fromCode": "MYS",
+    "to": "Hubballi Junction",
+    "toCode": "UBL",
+    "departure": "21:00",
+    "arrival": "07:25",
+    "duration": "10h 25m",
+    "fare": 320,
+    "availability": "Available 61",
+    "availabilityType": "available",
+    "confirmationChance": 94,
+    "classes": [
+      "Sleeper",
+      "3A"
+    ],
+    "days": "Daily",
+    "badge": "Budget",
+    "comfort": 3,
+    "insight": "Affordable overnight travel across Karnataka.",
+    "route": [
+      "Mysuru",
+      "Bengaluru",
+      "Tumakuru",
+      "Davanagere",
+      "Hubballi"
+    ]
+  },
+  {
+    "id": "TR015",
+    "number": "12958",
+    "name": "Swarna Jayanti Rajdhani",
+    "from": "New Delhi",
+    "fromCode": "NDLS",
+    "to": "Ahmedabad Junction",
+    "toCode": "ADI",
+    "departure": "19:55",
+    "arrival": "08:20",
+    "duration": "12h 25m",
+    "fare": 1280,
+    "availability": "Available 18",
+    "availabilityType": "available",
+    "confirmationChance": 98,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Daily",
+    "badge": "Executive",
+    "comfort": 5,
+    "insight": "Premium overnight connection between Delhi and Ahmedabad.",
+    "route": [
+      "Delhi",
+      "Jaipur",
+      "Ajmer",
+      "Palanpur",
+      "Ahmedabad"
+    ]
+  },
+  {
+    "id": "TR016",
+    "number": "12163",
+    "name": "Superfast Express",
+    "from": "Pune Junction",
+    "fromCode": "PUNE",
+    "to": "Chennai Central",
+    "toCode": "MAS",
+    "departure": "18:45",
+    "arrival": "13:10",
+    "duration": "18h 25m",
+    "fare": 570,
+    "availability": "RAC 8",
+    "availabilityType": "rac",
+    "confirmationChance": 90,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Best value",
+    "comfort": 4,
+    "insight": "A strong value option for southbound travellers.",
+    "route": [
+      "Pune",
+      "Solapur",
+      "Guntakal",
+      "Renigunta",
+      "Chennai"
+    ]
+  },
+  {
+    "id": "TR007",
+    "number": "12650",
+    "name": "Karnataka Sampark Kranti",
+    "from": "Hazrat Nizamuddin",
+    "fromCode": "NZM",
+    "to": "Bengaluru City",
+    "toCode": "SBC",
+    "departure": "08:20",
+    "arrival": "06:10",
+    "duration": "21h 50m",
+    "fare": 920,
+    "availability": "Available 35",
+    "availabilityType": "available",
+    "confirmationChance": 95,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Daily",
+    "badge": "Business traveller",
+    "comfort": 5,
+    "insight": "A premium long-distance service with strong punctuality.",
+    "route": [
+      "Delhi",
+      "Mathura",
+      "Bhopal",
+      "Nagpur",
+      "Bengaluru"
+    ]
+  },
+  {
+    "id": "TR008",
+    "number": "12301",
+    "name": "Rajdhani Express",
+    "from": "New Delhi",
+    "fromCode": "NDLS",
+    "to": "Howrah Junction",
+    "toCode": "HWH",
+    "departure": "16:50",
+    "arrival": "10:05",
+    "duration": "17h 15m",
+    "fare": 1450,
+    "availability": "Available 12",
+    "availabilityType": "available",
+    "confirmationChance": 98,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Daily",
+    "badge": "Premium",
+    "comfort": 5,
+    "insight": "Fast and reliable service between Delhi and Kolkata.",
+    "route": [
+      "Delhi",
+      "Kanpur",
+      "Prayagraj",
+      "Dhanbad",
+      "Howrah"
+    ]
+  },
+  {
+    "id": "TR009",
+    "number": "12622",
+    "name": "Tamil Nadu Express",
+    "from": "New Delhi",
+    "fromCode": "NDLS",
+    "to": "Chennai Central",
+    "toCode": "MAS",
+    "departure": "22:30",
+    "arrival": "07:00",
+    "duration": "32h 30m",
+    "fare": 980,
+    "availability": "Available 49",
+    "availabilityType": "available",
+    "confirmationChance": 96,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Most reliable",
+    "comfort": 4,
+    "insight": "One of India's most dependable long-distance routes.",
+    "route": [
+      "Delhi",
+      "Agra",
+      "Nagpur",
+      "Vijayawada",
+      "Chennai"
+    ]
+  },
+  {
+    "id": "TR010",
+    "number": "12951",
+    "name": "Mumbai Rajdhani",
+    "from": "Mumbai Central",
+    "fromCode": "MMCT",
+    "to": "New Delhi",
+    "toCode": "NDLS",
+    "departure": "17:00",
+    "arrival": "08:35",
+    "duration": "15h 35m",
+    "fare": 1520,
+    "availability": "Available 8",
+    "availabilityType": "available",
+    "confirmationChance": 99,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Daily",
+    "badge": "Fastest",
+    "comfort": 5,
+    "insight": "The quickest rail connection between Mumbai and Delhi.",
+    "route": [
+      "Mumbai",
+      "Vadodara",
+      "Kota",
+      "Delhi"
+    ]
+  },
+  {
+    "id": "TR011",
+    "number": "12626",
+    "name": "Kerala Express",
+    "from": "New Delhi",
+    "fromCode": "NDLS",
+    "to": "Thiruvananthapuram Central",
+    "toCode": "TVC",
+    "departure": "11:25",
+    "arrival": "15:15",
+    "duration": "51h 50m",
+    "fare": 880,
+    "availability": "WL 11",
+    "availabilityType": "waitlist",
+    "confirmationChance": 79,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Longest route",
+    "comfort": 4,
+    "insight": "Popular route connecting North and South India.",
+    "route": [
+      "Delhi",
+      "Nagpur",
+      "Vijayawada",
+      "Ernakulam",
+      "Trivandrum"
+    ]
+  },
+  {
+    "id": "TR012",
+    "number": "12839",
+    "name": "Chennai Mail",
+    "from": "Mumbai CSMT",
+    "fromCode": "CSMT",
+    "to": "Chennai Central",
+    "toCode": "MAS",
+    "departure": "20:35",
+    "arrival": "20:10",
+    "duration": "23h 35m",
+    "fare": 620,
+    "availability": "Available 21",
+    "availabilityType": "available",
+    "confirmationChance": 93,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Popular choice",
+    "comfort": 4,
+    "insight": "Well-balanced fare and journey duration.",
+    "route": [
+      "Mumbai",
+      "Pune",
+      "Solapur",
+      "Renigunta",
+      "Chennai"
+    ]
+  },
+  {
+    "id": "TR013",
+    "number": "12245",
+    "name": "Duronto Express",
+    "from": "Howrah Junction",
+    "fromCode": "HWH",
+    "to": "Yeshwantpur",
+    "toCode": "YPR",
+    "departure": "11:05",
+    "arrival": "16:15",
+    "duration": "29h 10m",
+    "fare": 1120,
+    "availability": "Available 15",
+    "availabilityType": "available",
+    "confirmationChance": 97,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Tue, Thu, Sat",
+    "badge": "Premium",
+    "comfort": 5,
+    "insight": "High-speed long-distance service with fewer stops.",
+    "route": [
+      "Howrah",
+      "Kharagpur",
+      "Bhubaneswar",
+      "Vijayawada",
+      "Bengaluru"
+    ]
+  },
+  {
+    "id": "TR014",
+    "number": "16591",
+    "name": "Hampi Express",
+    "from": "Mysuru Junction",
+    "fromCode": "MYS",
+    "to": "Hubballi Junction",
+    "toCode": "UBL",
+    "departure": "21:00",
+    "arrival": "07:25",
+    "duration": "10h 25m",
+    "fare": 320,
+    "availability": "Available 61",
+    "availabilityType": "available",
+    "confirmationChance": 94,
+    "classes": [
+      "Sleeper",
+      "3A"
+    ],
+    "days": "Daily",
+    "badge": "Budget",
+    "comfort": 3,
+    "insight": "Affordable overnight travel across Karnataka.",
+    "route": [
+      "Mysuru",
+      "Bengaluru",
+      "Tumakuru",
+      "Davanagere",
+      "Hubballi"
+    ]
+  },
+  {
+    "id": "TR015",
+    "number": "12958",
+    "name": "Swarna Jayanti Rajdhani",
+    "from": "New Delhi",
+    "fromCode": "NDLS",
+    "to": "Ahmedabad Junction",
+    "toCode": "ADI",
+    "departure": "19:55",
+    "arrival": "08:20",
+    "duration": "12h 25m",
+    "fare": 1280,
+    "availability": "Available 18",
+    "availabilityType": "available",
+    "confirmationChance": 98,
+    "classes": [
+      "3A",
+      "2A",
+      "1A"
+    ],
+    "days": "Daily",
+    "badge": "Executive",
+    "comfort": 5,
+    "insight": "Premium overnight connection between Delhi and Ahmedabad.",
+    "route": [
+      "Delhi",
+      "Jaipur",
+      "Ajmer",
+      "Palanpur",
+      "Ahmedabad"
+    ]
+  },
+  {
+    "id": "TR016",
+    "number": "12163",
+    "name": "Superfast Express",
+    "from": "Pune Junction",
+    "fromCode": "PUNE",
+    "to": "Chennai Central",
+    "toCode": "MAS",
+    "departure": "18:45",
+    "arrival": "13:10",
+    "duration": "18h 25m",
+    "fare": 570,
+    "availability": "RAC 8",
+    "availabilityType": "rac",
+    "confirmationChance": 90,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Best value",
+    "comfort": 4,
+    "insight": "A strong value option for southbound travellers.",
+    "route": [
+      "Pune",
+      "Solapur",
+      "Guntakal",
+      "Renigunta",
+      "Chennai"
+    ]
+  },
+  {
+    "id": "TR027",
+    "number": "12980",
+    "name": "Jaipur Superfast Express",
+    "from": "Jaipur Junction",
+    "fromCode": "JP",
+    "to": "Mumbai Central",
+    "toCode": "MMCT",
+    "departure": "19:40",
+    "arrival": "12:05",
+    "duration": "16h 25m",
+    "fare": 760,
+    "availability": "Available 37",
+    "availabilityType": "available",
+    "confirmationChance": 94,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Popular choice",
+    "comfort": 4,
+    "insight": "Strong overnight connectivity between Rajasthan and Maharashtra.",
+    "route": [
+      "Jaipur",
+      "Ajmer",
+      "Kota",
+      "Vadodara",
+      "Mumbai"
+    ]
+  },
+  {
+    "id": "TR028",
+    "number": "12230",
+    "name": "Lucknow Duronto",
+    "from": "Lucknow Junction",
+    "fromCode": "LJN",
+    "to": "New Delhi",
+    "toCode": "NDLS",
+    "departure": "22:10",
+    "arrival": "06:30",
+    "duration": "8h 20m",
+    "fare": 690,
+    "availability": "Available 52",
+    "availabilityType": "available",
+    "confirmationChance": 98,
+    "classes": [
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Fastest",
+    "comfort": 5,
+    "insight": "A preferred overnight business route with excellent punctuality.",
+    "route": [
+      "Lucknow",
+      "Kanpur",
+      "Aligarh",
+      "Delhi"
+    ]
+  },
+  {
+    "id": "TR029",
+    "number": "12678",
+    "name": "Kochi Intercity Express",
+    "from": "Ernakulam Junction",
+    "fromCode": "ERS",
+    "to": "Chennai Central",
+    "toCode": "MAS",
+    "departure": "13:45",
+    "arrival": "05:50",
+    "duration": "16h 05m",
+    "fare": 610,
+    "availability": "Available 29",
+    "availabilityType": "available",
+    "confirmationChance": 92,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Best value",
+    "comfort": 4,
+    "insight": "A comfortable and affordable option connecting Kerala to Chennai.",
+    "route": [
+      "Kochi",
+      "Thrissur",
+      "Palakkad",
+      "Salem",
+      "Chennai"
+    ]
+  },
+  {
+    "id": "TR030",
+    "number": "12779",
+    "name": "Goa Express",
+    "from": "Vasco Da Gama",
+    "fromCode": "VSG",
+    "to": "Hazrat Nizamuddin",
+    "toCode": "NZM",
+    "departure": "08:40",
+    "arrival": "18:15",
+    "duration": "33h 35m",
+    "fare": 950,
+    "availability": "WL 8",
+    "availabilityType": "waitlist",
+    "confirmationChance": 84,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Scenic route",
+    "comfort": 4,
+    "insight": "Beautiful Konkan landscapes make this one of the most scenic journeys.",
+    "route": [
+      "Goa",
+      "Madgaon",
+      "Ratnagiri",
+      "Vadodara",
+      "Delhi"
+    ]
+  },
+  {
+    "id": "TR031",
+    "number": "12805",
+    "name": "Janmabhoomi Express",
+    "from": "Visakhapatnam",
+    "fromCode": "VSKP",
+    "to": "Hyderabad Deccan",
+    "toCode": "HYB",
+    "departure": "18:20",
+    "arrival": "07:15",
+    "duration": "12h 55m",
+    "fare": 490,
+    "availability": "Available 46",
+    "availabilityType": "available",
+    "confirmationChance": 95,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Reliable",
+    "comfort": 4,
+    "insight": "Popular overnight option between Andhra Pradesh and Telangana.",
+    "route": [
+      "Visakhapatnam",
+      "Rajahmundry",
+      "Vijayawada",
+      "Hyderabad"
+    ]
+  },
+  {
+    "id": "TR032",
+    "number": "19302",
+    "name": "Indore Express",
+    "from": "Indore Junction",
+    "fromCode": "INDB",
+    "to": "Mumbai Central",
+    "toCode": "MMCT",
+    "departure": "21:00",
+    "arrival": "09:30",
+    "duration": "12h 30m",
+    "fare": 540,
+    "availability": "RAC 5",
+    "availabilityType": "rac",
+    "confirmationChance": 90,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Best value",
+    "comfort": 4,
+    "insight": "Strong RAC conversion history makes this a safe booking option.",
+    "route": [
+      "Indore",
+      "Ujjain",
+      "Ratlam",
+      "Vadodara",
+      "Mumbai"
+    ]
+  },
+  {
+    "id": "TR033",
+    "number": "12936",
+    "name": "Surat SF Express",
+    "from": "Surat",
+    "fromCode": "ST",
+    "to": "New Delhi",
+    "toCode": "NDLS",
+    "departure": "17:15",
+    "arrival": "08:00",
+    "duration": "14h 45m",
+    "fare": 820,
+    "availability": "Available 21",
+    "availabilityType": "available",
+    "confirmationChance": 96,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Business traveller",
+    "comfort": 5,
+    "insight": "Widely used by professionals travelling between Gujarat and Delhi.",
+    "route": [
+      "Surat",
+      "Vadodara",
+      "Kota",
+      "Mathura",
+      "Delhi"
+    ]
+  },
+  {
+    "id": "TR034",
+    "number": "12046",
+    "name": "Chandigarh Shatabdi",
+    "from": "Chandigarh",
+    "fromCode": "CDG",
+    "to": "New Delhi",
+    "toCode": "NDLS",
+    "departure": "06:15",
+    "arrival": "09:40",
+    "duration": "3h 25m",
+    "fare": 780,
+    "availability": "Available 67",
+    "availabilityType": "available",
+    "confirmationChance": 99,
+    "classes": [
+      "CC",
+      "EC"
+    ],
+    "days": "Daily",
+    "badge": "Fastest",
+    "comfort": 5,
+    "insight": "High-speed morning service with excellent punctuality.",
+    "route": [
+      "Chandigarh",
+      "Ambala",
+      "Panipat",
+      "Delhi"
+    ]
+  },
+  {
+    "id": "TR035",
+    "number": "12560",
+    "name": "Shiv Ganga Express",
+    "from": "Varanasi Junction",
+    "fromCode": "BSB",
+    "to": "New Delhi",
+    "toCode": "NDLS",
+    "departure": "19:40",
+    "arrival": "06:10",
+    "duration": "10h 30m",
+    "fare": 650,
+    "availability": "Available 34",
+    "availabilityType": "available",
+    "confirmationChance": 95,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Most reliable",
+    "comfort": 4,
+    "insight": "One of the most trusted overnight connections to Delhi.",
+    "route": [
+      "Varanasi",
+      "Prayagraj",
+      "Kanpur",
+      "Delhi"
+    ]
+  },
+  {
+    "id": "TR036",
+    "number": "17488",
+    "name": "Tirupati Express",
+    "from": "Tirupati",
+    "fromCode": "TPTY",
+    "to": "Hyderabad Deccan",
+    "toCode": "HYB",
+    "departure": "18:00",
+    "arrival": "06:20",
+    "duration": "12h 20m",
+    "fare": 450,
+    "availability": "Available 55",
+    "availabilityType": "available",
+    "confirmationChance": 94,
+    "classes": [
+      "Sleeper",
+      "3A",
+      "2A"
+    ],
+    "days": "Daily",
+    "badge": "Pilgrim favourite",
+    "comfort": 4,
+    "insight": "Convenient overnight travel between Tirupati and Hyderabad.",
+    "route": [
+      "Tirupati",
+      "Renigunta",
+      "Kadapa",
+      "Kurnool",
+      "Hyderabad"
+    ]
   }
 ]
