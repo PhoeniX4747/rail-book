@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../components/common/Logo'
 import { useAuth } from '../context/AuthContext'
+import { supabase } from '../lib/supabase'
 
 export default function LoginPage() {
   const [mode, setMode] = useState('login')
@@ -13,6 +14,20 @@ export default function LoginPage() {
   const [busy, setBusy] = useState(false)
   const { login, register } = useAuth()
   const navigate = useNavigate()
+
+  const logRegistration = async (email) => {
+    const { error } = await supabase
+      .from('registrations')
+      .insert([
+        {
+          email,
+        },
+      ])
+
+    if (error) {
+      console.error('Supabase registration log failed:', error)
+    }
+  }
 
   const submit = async (event) => {
     event.preventDefault()
@@ -28,6 +43,9 @@ export default function LoginPage() {
 
     setBusy(true)
     const result = mode === 'login' ? await login(email, password) : await register(email, password)
+    if (mode === 'register' && result.ok) {
+      await logRegistration(email)
+    }
     setBusy(false)
     if (!result.ok) {
       setError(result.error)
