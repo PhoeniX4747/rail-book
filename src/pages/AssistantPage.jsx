@@ -2,31 +2,34 @@ import { ArrowLeft, ArrowRight, CalendarClock, Check, MapPin, ShieldCheck, Spark
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBooking } from '../context/BookingContext'
+import { getStationOptions } from '../services/stationService'
 
 const prompts = [
-  { key: 'from', title: 'Where are you travelling from?', hint: 'Enter a city or station', icon: MapPin, placeholder: 'e.g. Hyderabad' },
-  { key: 'to', title: 'Where would you like to go?', hint: 'We’ll look for the simplest routes', icon: MapPin, placeholder: 'e.g. Mumbai' },
-  { key: 'arrival', title: 'When do you need to arrive?', hint: 'A rough time is enough—we’ll work with it.', icon: CalendarClock, placeholder: 'e.g. Friday morning' },
+  { key: 'from', title: 'Where are you travelling from?', hint: 'Choose your departure station.', icon: MapPin },
+  { key: 'to', title: 'Where would you like to go?', hint: 'Choose your destination station.', icon: MapPin },
+  { key: 'arrival', title: 'When do you need to arrive?', hint: 'Pick an arrival date and your preferred latest time.', icon: CalendarClock },
   { key: 'preferences', title: 'What matters most for this trip?', hint: 'A little context helps us rank the right options.', icon: Sparkles, placeholder: 'e.g. Comfortable journey with parents, avoid waiting list' },
 ]
 
 export default function AssistantPage() {
   const navigate = useNavigate()
   const { search, setSearch, setAiPreferences } = useBooking()
+  const stations = getStationOptions()
   const [step, setStep] = useState(0)
-  const [answers, setAnswers] = useState({ from: search.from, to: search.to, arrival: 'Friday morning', preferences: '' })
+  const [answers, setAnswers] = useState({ from: search.from, to: search.to, arrivalDate: search.date, arrivalTime: '08:00', preferences: '' })
   const current = prompts[step]
   const Icon = current.icon
   const progress = ((step + 1) / prompts.length) * 100
 
   const continueFlow = () => {
-    if (!answers[current.key].trim()) return
+    if (current.key === 'arrival' && (!answers.arrivalDate || !answers.arrivalTime)) return
+    if (current.key !== 'arrival' && !answers[current.key].trim()) return
     if (step < prompts.length - 1) {
       setStep(step + 1)
       return
     }
-    setSearch({ ...search, from: answers.from, to: answers.to })
-    setAiPreferences({ arrival: answers.arrival, preferences: answers.preferences })
+    setSearch({ ...search, from: answers.from, to: answers.to, date: answers.arrivalDate })
+    setAiPreferences({ arrival: `${answers.arrivalDate} by ${answers.arrivalTime}`, arrivalDate: answers.arrivalDate, arrivalTime: answers.arrivalTime, preferences: answers.preferences })
     navigate('/results?mode=smart')
   }
 
@@ -48,7 +51,9 @@ export default function AssistantPage() {
           <h2>{current.title}</h2>
           <p>{current.hint}</p>
           {current.key === 'arrival' ? (
-            <div className="arrival-options">{['Before 8 AM', 'Tomorrow evening', 'Friday night', 'I’m flexible'].map((option) => <button key={option} type="button" onClick={() => setAnswers({ ...answers, arrival: option })} className={answers.arrival === option ? 'arrival-option arrival-option--selected' : 'arrival-option'}>{answers.arrival === option && <Check size={15} />}{option}</button>)}</div>
+            <div className="arrival-date-time"><label><span>Arrival date</span><input type="date" value={answers.arrivalDate} onChange={(event) => setAnswers({ ...answers, arrivalDate: event.target.value })} /></label><label><span>Arrive by</span><select value={answers.arrivalTime} onChange={(event) => setAnswers({ ...answers, arrivalTime: event.target.value })}>{['06:00', '08:00', '10:00', '12:00', '15:00', '18:00', '21:00', '23:00'].map((time) => <option key={time} value={time}>{time}</option>)}</select></label></div>
+          ) : current.key === 'from' || current.key === 'to' ? (
+            <label className="assistant-input"><span className="sr-only">{current.title}</span><select autoFocus value={answers[current.key]} onChange={(event) => setAnswers({ ...answers, [current.key]: event.target.value })}>{stations.map((station) => <option key={station.value} value={station.value}>{station.label}</option>)}</select></label>
           ) : (
             <label className="assistant-input"><span className="sr-only">{current.title}</span><input autoFocus value={answers[current.key]} onChange={(event) => setAnswers({ ...answers, [current.key]: event.target.value })} onKeyDown={(event) => event.key === 'Enter' && continueFlow()} placeholder={current.placeholder} /></label>
           )}
