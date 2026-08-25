@@ -1,12 +1,15 @@
 import { ArrowRight, CalendarDays, ChevronRight, Clock3, MapPin, Route, Sparkles, Ticket, TrendingUp, WandSparkles } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useBooking } from '../context/BookingContext'
+import InfoModal from '../components/common/InfoModal'
 
 export default function DashboardPage() {
   const navigate = useNavigate()
   const { user } = useAuth()
   const { search, setSearch, bookings } = useBooking()
+  const [racGuideOpen, setRacGuideOpen] = useState(false)
   const firstName = user?.name?.split(' ')[0] || 'Traveler'
 
   const useQuickRoute = () => {
@@ -50,7 +53,7 @@ export default function DashboardPage() {
           <div className="quick-plan-row"><button onClick={() => { setSearch({ ...search, from: 'Hyderabad', to: 'Bengaluru' }); navigate('/results') }}>Hyderabad <ArrowRight size={14} /> Bengaluru</button><button onClick={() => { setSearch({ ...search, from: 'Hyderabad', to: 'Chennai' }); navigate('/results') }}>Hyderabad <ArrowRight size={14} /> Chennai</button></div>
         </div>
         <aside className="section-card travel-tip">
-          <div className="tip-icon"><TrendingUp size={19} /></div><span className="eyebrow">Travel insight</span><h3>Not sure about RAC?</h3><p>RAC means you can travel and often get a full berth before your journey begins.</p><button className="text-button">Learn in plain English <ArrowRight size={16} /></button>
+          <div className="tip-icon"><TrendingUp size={19} /></div><span className="eyebrow">Travel insight</span><h3>Not sure about RAC?</h3><p>RAC means you can travel and often get a full berth before your journey begins.</p><button className="text-button" onClick={() => setRacGuideOpen(true)}>Learn in plain English <ArrowRight size={16} /></button>
         </aside>
       </section>
 
@@ -62,6 +65,7 @@ export default function DashboardPage() {
           <div className="empty-trip"><span><Clock3 size={20} /></span><div><strong>Your next memorable trip starts here.</strong><p>Compare options clearly, understand your chances, then book with confidence.</p></div><button className="button button--secondary button--compact" onClick={() => navigate('/assistant')}>Find my train <ArrowRight size={16} /></button></div>
         )}
       </section>
+      {racGuideOpen && <InfoModal title="RAC, in plain English" onClose={() => setRacGuideOpen(false)}><div className="plain-language-guide"><strong>What it means</strong><p>RAC stands for Reservation Against Cancellation. You have a valid ticket and can board the train.</p><strong>What to expect</strong><p>At first, you may share a berth. If someone cancels, the railway can assign you a full berth before or during the trip.</p><strong>How RailBook helps</strong><p>We display a confirmation estimate so you can compare RAC with other trains confidently.</p></div></InfoModal>}
     </div>
   )
 }
