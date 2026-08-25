@@ -1,11 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from 'react'
 import { createMockBooking } from '../services/bookingService'
+import { getDefaultBookingDate } from '../utils/dateRange'
 
 const defaultSearch = {
   from: 'Hyderabad',
   to: 'Mumbai',
-  date: '2026-10-01',
+  date: getDefaultBookingDate(),
   travelClass: 'Any class',
   tatkal: false,
   flexible: false,

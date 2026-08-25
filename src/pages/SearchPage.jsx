@@ -3,11 +3,13 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBooking } from '../context/BookingContext'
 import { getStationOptions } from '../services/stationService'
+import { getBookingDateRange } from '../utils/dateRange'
 
 export default function SearchPage() {
   const navigate = useNavigate()
   const { search, setSearch } = useBooking()
   const stations = getStationOptions()
+  const { minDate, maxDate } = getBookingDateRange()
   const [draft, setDraft] = useState(search)
   const [advancedOpen, setAdvancedOpen] = useState(false)
 
@@ -24,10 +26,10 @@ export default function SearchPage() {
       <section className="page-heading page-heading--center"><span className="eyebrow">Plan your journey</span><h1>Find the train that fits.</h1><p>Simple search, clear choices, no railway jargon required.</p></section>
       <form className="search-panel" onSubmit={submit}>
         <div className="search-fields">
-          <label className="search-field"><span>From</span><div><MapPin size={19} /><select value={draft.from} onChange={(event) => update('from', event.target.value)} aria-label="Departure station">{stations.map((station) => <option key={station.value} value={station.value}>{station.label}</option>)}</select></div></label>
+          <label className="search-field"><span>From</span><div><MapPin size={19} /><select value={draft.from} onChange={(event) => update('from', event.target.value)} aria-label="Departure station">{stations.map((station) => <option key={station.value} value={station.value} disabled={station.value === draft.to}>{station.label}</option>)}</select></div></label>
           <button className="swap-button" type="button" onClick={swapStations} aria-label="Swap departure and destination"><ArrowLeftRight size={17} /></button>
-          <label className="search-field"><span>To</span><div><MapPin size={19} /><select value={draft.to} onChange={(event) => update('to', event.target.value)} aria-label="Destination station">{stations.map((station) => <option key={station.value} value={station.value}>{station.label}</option>)}</select></div></label>
-          <label className="search-field search-field--date"><span>Travel date</span><div><CalendarDays size={19} /><input type="date" value={draft.date} onChange={(event) => update('date', event.target.value)} required /></div></label>
+          <label className="search-field"><span>To</span><div><MapPin size={19} /><select value={draft.to} onChange={(event) => update('to', event.target.value)} aria-label="Destination station">{stations.map((station) => <option key={station.value} value={station.value} disabled={station.value === draft.from}>{station.label}</option>)}</select></div></label>
+          <label className="search-field search-field--date"><span>Travel date</span><div><CalendarDays size={19} /><input type="date" value={draft.date} min={minDate} max={maxDate} onChange={(event) => update('date', event.target.value)} required /></div></label>
           <button className="button button--primary search-submit" type="submit"><Search size={18} /> Search trains</button>
         </div>
         <button className="advanced-toggle" type="button" onClick={() => setAdvancedOpen(!advancedOpen)}><SlidersHorizontal size={16} /> Advanced filters <ChevronDown size={16} className={advancedOpen ? 'chevron-up' : ''} /></button>

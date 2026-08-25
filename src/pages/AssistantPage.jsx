@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBooking } from '../context/BookingContext'
 import { getStationOptions } from '../services/stationService'
+import { getBookingDateRange } from '../utils/dateRange'
 
 const prompts = [
   { key: 'from', title: 'Where are you travelling from?', hint: 'Choose your departure station.', icon: MapPin },
@@ -15,6 +16,7 @@ export default function AssistantPage() {
   const navigate = useNavigate()
   const { search, setSearch, setAiPreferences } = useBooking()
   const stations = getStationOptions()
+  const { minDate, maxDate } = getBookingDateRange()
   const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState({ from: search.from, to: search.to, arrivalDate: search.date, arrivalTime: '08:00', preferences: '' })
   const current = prompts[step]
@@ -51,9 +53,9 @@ export default function AssistantPage() {
           <h2>{current.title}</h2>
           <p>{current.hint}</p>
           {current.key === 'arrival' ? (
-            <div className="arrival-date-time"><label><span>Arrival date</span><input type="date" value={answers.arrivalDate} onChange={(event) => setAnswers({ ...answers, arrivalDate: event.target.value })} /></label><label><span>Arrive by</span><select value={answers.arrivalTime} onChange={(event) => setAnswers({ ...answers, arrivalTime: event.target.value })}>{['06:00', '08:00', '10:00', '12:00', '15:00', '18:00', '21:00', '23:00'].map((time) => <option key={time} value={time}>{time}</option>)}</select></label></div>
+            <div className="arrival-date-time"><label><span>Arrival date</span><input type="date" value={answers.arrivalDate} min={minDate} max={maxDate} onChange={(event) => setAnswers({ ...answers, arrivalDate: event.target.value })} /></label><label><span>Arrive by</span><select value={answers.arrivalTime} onChange={(event) => setAnswers({ ...answers, arrivalTime: event.target.value })}>{['06:00', '08:00', '10:00', '12:00', '15:00', '18:00', '21:00', '23:00'].map((time) => <option key={time} value={time}>{time}</option>)}</select></label></div>
           ) : current.key === 'from' || current.key === 'to' ? (
-            <label className="assistant-input"><span className="sr-only">{current.title}</span><select autoFocus value={answers[current.key]} onChange={(event) => setAnswers({ ...answers, [current.key]: event.target.value })}>{stations.map((station) => <option key={station.value} value={station.value}>{station.label}</option>)}</select></label>
+            <label className="assistant-input"><span className="sr-only">{current.title}</span><select autoFocus value={answers[current.key]} onChange={(event) => setAnswers({ ...answers, [current.key]: event.target.value })}>{stations.map((station) => <option key={station.value} value={station.value} disabled={station.value === (current.key === 'from' ? answers.to : answers.from)}>{station.label}</option>)}</select></label>
           ) : (
             <label className="assistant-input"><span className="sr-only">{current.title}</span><input autoFocus value={answers[current.key]} onChange={(event) => setAnswers({ ...answers, [current.key]: event.target.value })} onKeyDown={(event) => event.key === 'Enter' && continueFlow()} placeholder={current.placeholder} /></label>
           )}
