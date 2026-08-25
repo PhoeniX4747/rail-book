@@ -18,7 +18,7 @@ export default function AssistantPage() {
   const stations = getStationOptions()
   const { minDate, maxDate } = getBookingDateRange()
   const [step, setStep] = useState(0)
-  const [answers, setAnswers] = useState({ from: search.from, to: search.to, arrivalDate: search.date, arrivalTime: '08:00', preferences: '' })
+  const [answers, setAnswers] = useState({ from: '', to: '', arrivalDate: search.date, arrivalTime: '08:00', preferences: '' })
   const current = prompts[step]
   const Icon = current.icon
   const progress = ((step + 1) / prompts.length) * 100
@@ -55,7 +55,7 @@ export default function AssistantPage() {
           {current.key === 'arrival' ? (
             <div className="arrival-date-time"><label><span>Arrival date</span><input type="date" value={answers.arrivalDate} min={minDate} max={maxDate} onChange={(event) => setAnswers({ ...answers, arrivalDate: event.target.value })} /></label><label><span>Arrive by</span><select value={answers.arrivalTime} onChange={(event) => setAnswers({ ...answers, arrivalTime: event.target.value })}>{['06:00', '08:00', '10:00', '12:00', '15:00', '18:00', '21:00', '23:00'].map((time) => <option key={time} value={time}>{time}</option>)}</select></label></div>
           ) : current.key === 'from' || current.key === 'to' ? (
-            <label className="assistant-input"><span className="sr-only">{current.title}</span><select autoFocus value={answers[current.key]} onChange={(event) => setAnswers({ ...answers, [current.key]: event.target.value })}>{stations.map((station) => <option key={station.value} value={station.value} disabled={station.value === (current.key === 'from' ? answers.to : answers.from)}>{station.label}</option>)}</select></label>
+            <label className="assistant-input"><span className="sr-only">{current.title}</span><select autoFocus value={answers[current.key]} onChange={(event) => setAnswers({ ...answers, [current.key]: event.target.value })}><option value="" disabled>Select a station</option>{stations.map((station) => <option key={station.value} value={station.value} disabled={station.value === (current.key === 'from' ? answers.to : answers.from)}>{station.label}</option>)}</select></label>
           ) : (
             <label className="assistant-input"><span className="sr-only">{current.title}</span><input autoFocus value={answers[current.key]} onChange={(event) => setAnswers({ ...answers, [current.key]: event.target.value })} onKeyDown={(event) => event.key === 'Enter' && continueFlow()} placeholder={current.placeholder} /></label>
           )}
