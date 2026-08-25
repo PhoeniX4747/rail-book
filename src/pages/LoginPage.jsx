@@ -35,7 +35,7 @@ export default function LoginPage() {
           <div className="mini-route"><strong>HYB</strong><span><i></i><small>11h 50m</small><i></i></span><strong>BOM</strong></div>
           <div className="mini-trip-meta"><span>Fri, 2 Oct</span><span>Confirmed</span></div>
         </div>
-        <div className="login-trust"><span><LockKeyhole size={15} /> Your journey preferences stay private</span><span><CalendarCheck2 size={15} /> Mock booking experience</span></div>
+        <div className="login-trust"><span><LockKeyhole size={15} /> Your journey preferences stay private</span><span><CalendarCheck2 size={15} /> Seamless booking experience</span></div>
       </section>
       <section className="login-panel">
         <div className="login-form-wrap">
