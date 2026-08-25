@@ -30,7 +30,7 @@ export default function ResultsPage() {
         <button className="button button--secondary" onClick={() => navigate('/search')}><RefreshCw size={16} /> Edit search</button>
       </section>
 
-      {smartMode && matches.length > 0 && <section className="ai-summary"><div className="ai-summary-icon"><WandSparkles size={20} /></div><div><strong>We filtered the route first, then ranked the relevant trains.</strong><p>{aiPreferences.preferences || 'We prioritized a balanced journey with a strong chance of confirmation.'}</p></div><span className="ai-chip"><ShieldCheck size={15} /> No invented data</span></section>}
+      {smartMode && matches.length > 0 && <section className="ai-summary"><div className="ai-summary-icon"><WandSparkles size={20} /></div><div><strong>We filtered the route first, then ranked the relevant trains.</strong><p>{aiPreferences.preferences?.length ? `Priorities: ${aiPreferences.preferences.map((preference) => preference.replaceAll('-', ' ')).join(' · ')}` : 'We prioritized a balanced journey with a strong chance of confirmation.'}</p></div><span className="ai-chip"><ShieldCheck size={15} /> No invented data</span></section>}
 
       <div className="results-layout">
         <section className="results-list">
