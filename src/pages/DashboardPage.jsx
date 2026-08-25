@@ -37,7 +37,7 @@ export default function DashboardPage() {
         </button>
         <button className="choice-card choice-card--ai" onClick={() => navigate('/assistant')}>
           <span className="choice-icon choice-icon--ai"><WandSparkles size={25} /></span>
-          <div><span className="eyebrow eyebrow--violet"><Sparkles size={13} /> RailBook intelligence</span><h2>Smart travel assistant</h2><p>Tell us what matters. We’ll recommend the trains that fit your journey.</p></div>
+          <div><span className="eyebrow eyebrow--violet"><Sparkles size={13} /> RailBook intelligence</span><span className="assistant-recommended">Recommended</span><h2>Smart travel assistant</h2><p>Tell us what matters. We’ll recommend the trains that fit your journey.</p></div>
           <ArrowRight className="choice-arrow" size={22} />
           <div className="choice-art choice-art--ai" aria-hidden="true"><i></i><i></i><i></i></div>
         </button>
